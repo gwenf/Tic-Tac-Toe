@@ -1,0 +1,45 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background-color: coral;
+}
+
+h1 {
+	text-align: center;
+	margin: 20px 0 30px;
+	font-size: 3em;
+	font-weight: 400;
+}
+
+#canvas {
+	display: block;
+	background-color: cornflowerblue;
+	margin: 20px auto;
+	height: 400px;
+	width: 400px;
+	border-radius: 5px;
+}
+
+.tile {
+	width: 113px;
+	height: 113px;
+	background: white;
+	margin: 10px;
+	float: left;
+	border-radius: 5px;
+	
+	
+	text-align: center;
+	font-size: 5em;
+}
+
+#reset {
+	display: block;
+	margin: 10px auto;
+	text-align: center;
+	font-size: 1.2em;
+	padding: 4px;
+	border-radius: 7px;
+	background-color: white;
+}
