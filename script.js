@@ -28,19 +28,18 @@ $('.tile').click(function(){
 	if ($(this).text()===''){
 		$(this).text(playerToken);
 		completeArray.push(playerToken);
+		checkForVictory();
 		checkForCompletion();
 		
 		computerChoice();
-		checkForCompletion();
 		checkForVictory();
+		checkForCompletion();
 		
 	}
 });
 	
 $('#reset').click(function() {
 	resetBoard();
-	playerToken = prompt('Would you like to use x or o?').toLowerCase();
-	validate();
 });
 
 
@@ -68,20 +67,33 @@ function checkForCompletion() {
 	}
 }
 	
+	
 function checkForVictory() {
 	//check to see if rows match
-		if($('#square1').text()===$('#square2').text()===$('#square3').text()){
-			if ($('#square1').text()===playerToken){
-				playerWins();
-			} else {
-				computerWins();
-			}
+	if($('#square1').text()===$('#square2').text()&&$('#square2').text()===$('#square3').text()&&$('#square1').text()===playerToken||$('#square4').text()===$('#square5').text()&&$('#square5').text()===$('#square6').text()&&$('#square4').text()===playerToken||$('#square7').text()===$('#square8').text()&&$('#square8').text()===$('#square9').text()&&$('#square7').text()===playerToken){
+			playerWins();
 		}
+if($('#square1').text()===$('#square2').text()&&$('#square2').text()===$('#square3').text()&&$('#square1').text()===computerToken||$('#square4').text()===$('#square5').text()&&$('#square5').text()===$('#square6').text()&&$('#square4').text()===computerToken||$('#square7').text()===$('#square8').text()&&$('#square8').text()===$('#square9').text()&&$('#square7').text()===computerToken){
+			computerWins();
+		}
+	
 	//check to see if columns match
-		$('#square'+squareChoice).text();
+	if($('#square1').text()===$('#square4').text()&&$('#square4').text()===$('#square7').text()&&$('#square1').text()===playerToken||$('#square2').text()===$('#square5').text()&&$('#square5').text()===$('#square8').text()&&$('#square2').text()===playerToken||$('#square3').text()===$('#square6').text()&&$('#square6').text()===$('#square9').text()&&$('#square3').text()===playerToken){
+			playerWins();
+		}
+if($('#square1').text()===$('#square4').text()&&$('#square4').text()===$('#square7').text()&&$('#square1').text()===computerToken||$('#square2').text()===$('#square5').text()&&$('#square5').text()===$('#square8').text()&&$('#square2').text()===computerToken||$('#square3').text()===$('#square6').text()&&$('#square6').text()===$('#square9').text()&&$('#square3').text()===computerToken){
+			computerWins();
+		}
+	
 	//check to see if diagnal matches
-		$('#square'+squareChoice).text();
+if($('#square1').text()===$('#square5').text()&&$('#square5').text()===$('#square9').text()&&$('#square1').text()===playerToken||$('#square3').text()===$('#square5').text()&&$('#square5').text()===$('#square7').text()&&$('#square3').text()===playerToken){
+			playerWins();
+		}
+if($('#square1').text()===$('#square5').text()&&$('#square5').text()===$('#square9').text()&&$('#square1').text()===computerToken||$('#square3').text()===$('#square5').text()&&$('#square5').text()===$('#square7').text()&&$('#square3').text()===computerToken){
+			computerWins();
+		}
 }
+	
 
 function tieGame () {
 	alert("It's a draw!");
@@ -103,6 +115,8 @@ function resetBoard () {
 	playerToken = prompt('Would you like to use x or o?').toLowerCase();
 	validate();
 	$('.tile').text('');
+	completeArray = [];
+	computerToken = playerToken==='x' ? 'o' : 'x';
 }
 
 });
